@@ -1,5 +1,5 @@
-#ifndef __STEPPERMOTOR_H
-#define __STEPPERMOTOR_H
+#ifndef __DRIVERSTEPPER_H
+#define __DRIVERSTEPPER_H
 
 #include "main.h"
 
@@ -25,7 +25,7 @@ public:
 
     DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, uint8_t bitDir, uint8_t portPul, uint8_t bitPul);
 
-    void HandleDelPeriferico();
+    void HandlerDelPeriferico();
 
     void freeMove();
 

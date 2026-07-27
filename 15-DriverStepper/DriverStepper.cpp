@@ -1,4 +1,4 @@
-#include "stepperMotor.h"
+#include "main.h"
 
 DriverStepper::DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, uint8_t bitDir, uint8_t portPul, uint8_t bitPul) : m_ena(portEna, bitEna, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_dir(portDir, bitDir, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_pul(portPul, bitPul, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH)
 {
@@ -19,7 +19,7 @@ DriverStepper::DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, u
     AddPerifericoTemporizado(this);
 }
 
-void DriverStepper::HandleDelPeriferico()
+void DriverStepper::HandlerDelPeriferico()
 {
 
     if(m_activateMove)

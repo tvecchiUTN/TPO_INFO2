@@ -57,7 +57,7 @@ public:
      *          o barrido principal). Si el movimiento está activado, cambia de estado
      *          el pin PUL (Toggle) para generar el tren de pulsos que mueve el motor.
      */
-    void HandleDelPeriferico();
+    void HandlerDelPeriferico();
 
     /**
      * @brief Inicia el movimiento libre y continuo del motor.
