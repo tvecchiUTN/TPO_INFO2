@@ -9,15 +9,15 @@ int main( void )
 {
     // ── Inicialización — NO modificar ────────────────────────────────────
     inicializacion();
-
-    pasoPaso.moveTicks(10);
-    timePaso.TimerStart(5, funcTimer, Timer::SEG);
-
+    uint32_t contador = 0;
     // ── Loop principal ───────────────────────────────────────────────────
     while( 1 ) {
 
         // (implementar la lógica del enunciado)
-    	timePaso.TmrEvent();
+        if(SENSOR_HALL.GetPin())
+        {
+            contador++;
+        }
 
     }
 

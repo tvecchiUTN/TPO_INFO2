@@ -10,8 +10,7 @@
 
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
-extern DriverStepper pasoPaso;
-extern Timer timePaso;
+extern Gpio SENSOR_HALL;
 
 void inicializacion( void );
 

@@ -9,13 +9,7 @@
 
 // ── Instanciación de objetos globales ─────────────────────────────────────
 // (completar con los objetos del enunciado)
-#define PIO_ENA 0, 16
-#define PIO_DIR 0, 17
-#define PIO_PUL 0, 18
-
-DriverStepper pasoPaso(0, 16, 0, 17, 0, 18);
-
-Timer timePaso(Timer::SEG);
+Gpio SENSOR_HALL(0, 17, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
 
 void inicializacion( void )
 {

@@ -17,20 +17,3 @@ void MiFuncionSysTickCallback( void )
 
 // ── Funciones de la aplicación ────────────────────────────────────────────
 // (implementar aquí los callbacks y la lógica pedida por el enunciado)
-
-void funcTimer()
-{
-    static bool isHorario = true;
-
-    if(isHorario)
-    {
-        pasoPaso.setStepperDirection(DriverStepper::HORARIO);
-        isHorario = false;
-        timePaso.SetTimer(5);
-        return;
-    }
-
-    pasoPaso.setStepperDirection(DriverStepper::ANTIHORARIO);
-    isHorario = true;
-    timePaso.SetTimer(5);
-}
