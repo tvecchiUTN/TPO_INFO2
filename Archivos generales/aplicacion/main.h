@@ -18,6 +18,7 @@
 #include "MultiplesTimers.h"
 #include "DigitalOutputs.h"
 #include "DigitalInputs.h"
+#include "DriverStepper.h"
 #include "inicializacion.h"
 #include "aplicacion.h"
 
