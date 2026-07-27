@@ -9,14 +9,13 @@
 
 // ── Instanciación de objetos globales ─────────────────────────────────────
 // (completar con los objetos del enunciado)
+#define PIO_ENA 0, 16
+#define PIO_DIR 0, 17
+#define PIO_PUL 0, 18
 
-#define PIO_ENABLE 0,16
-#define PIO_DIR 0,17
-#define PIO_PUL 0,18
+DriverStepper pasoPaso(0, 16, 0, 17, 0, 18);
 
-DriverStepper pasoPaso(PIO_ENABLE, PIO_DIR, PIO_PUL);
-
-Timer tiempoPaso(Timer::SEG);
+Timer timePaso(Timer::SEG);
 
 void inicializacion( void )
 {

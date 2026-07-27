@@ -8,13 +8,10 @@
 #ifndef INICIALIZACION_H_
 #define INICIALIZACION_H_
 
-#include "DriverStepper.h"
-
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
-
 extern DriverStepper pasoPaso;
-extern Timer tiempoPaso;
+extern Timer timePaso;
 
 void inicializacion( void );
 

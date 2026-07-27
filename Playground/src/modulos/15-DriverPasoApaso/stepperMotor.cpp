@@ -1,9 +1,9 @@
-#include "DriverStepper.h"
+#include "main.h"
 
 DriverStepper::DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, uint8_t bitDir, uint8_t portPul, uint8_t bitPul) : m_ena(portEna, bitEna, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_dir(portDir, bitDir, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_pul(portPul, bitPul, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH)
 {
     //Queda prendido
-    m_ena.ClrPin();
+    m_ena.SetPin();
 
     //No lo enciendo, me aseguro que no se mueva
     m_pul.ClrPin();
@@ -24,9 +24,14 @@ void DriverStepper::HandlerDelPeriferico()
 
     if(m_activateMove)
     {
-        if(m_countTicks >= m_waitTicks)
+    	if(!m_waitTicks)
+    	{
+    		m_pul.SetTogglePin();
+    		return;
+    	}
+    	else if(m_countTicks >= m_waitTicks)
         {
-            m_pul.SetPin();
+    		m_pul.SetPin();
             m_countTicks = 0;
             return;
         }
@@ -74,9 +79,4 @@ void DriverStepper::enStart()
 void DriverStepper::enStop()
 {
     m_ena.SetPin();
-}
-
-DriverStepper::~DriverStepper()
-{
-    return;
 }

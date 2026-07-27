@@ -21,14 +21,16 @@ void MiFuncionSysTickCallback( void )
 void funcTimer()
 {
     static bool isHorario = true;
+
     if(isHorario)
     {
         pasoPaso.setStepperDirection(DriverStepper::HORARIO);
         isHorario = false;
-        tiempoPaso.SetTimer(5);
+        timePaso.SetTimer(5);
         return;
     }
+
     pasoPaso.setStepperDirection(DriverStepper::ANTIHORARIO);
     isHorario = true;
-    tiempoPaso.SetTimer(5);
+    timePaso.SetTimer(5);
 }

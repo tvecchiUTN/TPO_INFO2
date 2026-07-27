@@ -1,5 +1,5 @@
-#ifndef __DRIVERSTEPPER_H
-#define __DRIVERSTEPPER_H
+#ifndef __STEPPERMOTOR_H
+#define __STEPPERMOTOR_H
 
 #include "main.h"
 
@@ -38,8 +38,6 @@ public:
     void enStart();
 
     void enStop();
-
-    virtual ~DriverStepper();
 };
 
 #endif

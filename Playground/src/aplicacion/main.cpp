@@ -10,13 +10,14 @@ int main( void )
     // ── Inicialización — NO modificar ────────────────────────────────────
     inicializacion();
 
-    tiempoPaso.TimerStart(5, funcTimer, Timer::SEG);
-    pasoPaso.freeMove();
+    pasoPaso.moveTicks(10);
+    timePaso.TimerStart(5, funcTimer, Timer::SEG);
 
     // ── Loop principal ───────────────────────────────────────────────────
     while( 1 ) {
 
         // (implementar la lógica del enunciado)
+    	timePaso.TmrEvent();
 
     }
 
