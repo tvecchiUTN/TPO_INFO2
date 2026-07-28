@@ -19,6 +19,7 @@
 #include "DigitalOutputs.h"
 #include "DigitalInputs.h"
 #include "stepperMotor.h"
+#include "sensorHall.h"
 #include "inicializacion.h"
 #include "aplicacion.h"
 

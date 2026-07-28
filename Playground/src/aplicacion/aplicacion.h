@@ -10,6 +10,5 @@
 void MiFuncionSysTickCallback( void );
 
 // (agregar prototipos de callbacks y funciones de la aplicación)
-void funcTimer();
 
 #endif /* APLICACION_H_ */

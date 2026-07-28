@@ -9,7 +9,10 @@
 
 // ── Instanciación de objetos globales ─────────────────────────────────────
 // (completar con los objetos del enunciado)
-Gpio SENSOR_HALL(0, 17, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+Gpio pulsador_0(0, 8, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+Gpio pulsador_1(0, 9, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+Gpio pulsador_2(0, 31, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+Gpio pulsador_3(0, 30, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
 
 void inicializacion( void )
 {

@@ -4,22 +4,39 @@
 
 #include <cr_section_macros.h>
 #include "main.h"
+//#include "inicializacion.h"
 
 int main( void )
 {
     // ── Inicialización — NO modificar ────────────────────────────────────
     inicializacion();
-    uint32_t contador = 0;
     // ── Loop principal ───────────────────────────────────────────────────
-    while( 1 ) {
+    uint8_t goToFlour = 0;
 
-        // (implementar la lógica del enunciado)
-        if(SENSOR_HALL.GetPin())
+    while( 1 ) 
+    {
+        if(pulsador_0.GetPin())
         {
-            contador++;
+            goToFlour = 0;
+        }
+        else if(pulsador_1.GetPin())
+        {
+            goToFlour = 1;
+        }
+        else if(pulsador_2.GetPin())
+        {
+            goToFlour = 2;
+        }
+        else if(pulsador_3.GetPin())
+        {
+            goToFlour = 3;
         }
 
-    }
+        if(goToFlour == 3)
+        {
+
+        }
+    }   
 
     return 0;
 }

@@ -3,13 +3,13 @@
 DriverStepper::DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, uint8_t bitDir, uint8_t portPul, uint8_t bitPul) : m_ena(portEna, bitEna, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_dir(portDir, bitDir, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH), m_pul(portPul, bitPul, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH)
 {
     //Queda prendido
-    m_ena.SetPin();
+    m_ena.ClrPin();
 
     //No lo enciendo, me aseguro que no se mueva
     m_pul.ClrPin();
 
     //Sentido horario
-    m_dir.SetPin();
+    m_dir.ClrPin();
 
     m_activateMove = false;
 
@@ -56,12 +56,12 @@ void DriverStepper::setStepperDirection(stepperDir_t stepDir)
 {
     if(stepDir == HORARIO)
     {
-        m_dir.SetPin();
+        m_dir.ClrPin();
         return;
     }
     else if(stepDir == ANTIHORARIO)
     {
-        m_dir.ClrPin();
+        m_dir.SetPin();
     }
 }    
 

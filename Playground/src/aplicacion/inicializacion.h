@@ -10,7 +10,12 @@
 
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
-extern Gpio SENSOR_HALL;
+
+extern Gpio pulsador_0;
+extern Gpio pulsador_1;
+extern Gpio pulsador_2;
+extern Gpio pulsador_3;
+
 
 void inicializacion( void );
 
