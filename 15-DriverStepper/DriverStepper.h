@@ -16,6 +16,8 @@ private:
 
     volatile bool m_activateMove;
 
+    Gpio::error_t m_error;
+
 public:
     enum stepperDir_t
     {
@@ -25,15 +27,19 @@ public:
 
     DriverStepper(uint8_t portEna, uint8_t bitEna, uint8_t portDir, uint8_t bitDir, uint8_t portPul, uint8_t bitPul);
 
+    Gpio::error_t getError() const;
+
     void HandlerDelPeriferico();
 
     void freeMove();
 
     void moveTicks(uint32_t waitTicks);
 
-    void setStepperDirection(stepperDir_t stepDir);
+    void setSteppDir(stepperDir_t stepDir);
 
-    void stop();
+    void toogleSteppDir();
+
+    void digitalStop();
 
     void enStart();
 
