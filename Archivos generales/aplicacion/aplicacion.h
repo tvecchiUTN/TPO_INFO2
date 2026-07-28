@@ -9,6 +9,8 @@
 
 void MiFuncionSysTickCallback( void );
 
+Gpio::error_t checkError(uint8_t port, uint8_t bit);
+
 // (agregar prototipos de callbacks y funciones de la aplicación)
 
 #endif /* APLICACION_H_ */

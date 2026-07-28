@@ -15,6 +15,14 @@ void MiFuncionSysTickCallback( void )
         PerifericoTemporizado::m_perifericosTemporizados[i]->HandlerDelPeriferico();
 }
 
+Gpio::error_t checkError(uint8_t port, uint8_t bit)
+{
+    if((port > 1) || (bit > 31) || ((port == 1) && (bit > 9)))
+    {
+        return Gpio::ERROR;
+    }
+}
+
 // ── Funciones de la aplicación ────────────────────────────────────────────
 // (implementar aquí los callbacks y la lógica pedida por el enunciado)
 
