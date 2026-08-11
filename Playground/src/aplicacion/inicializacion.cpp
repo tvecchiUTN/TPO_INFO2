@@ -9,10 +9,12 @@
 
 // ── Instanciación de objetos globales ─────────────────────────────────────
 // (completar con los objetos del enunciado)
-Gpio pulsador_0(0, 8, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
-Gpio pulsador_1(0, 9, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
-Gpio pulsador_2(0, 31, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
-Gpio pulsador_3(0, 30, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+DriverStepper pap(0, 0, 0, 17, 0, 18);
+
+Gpio rx(0, 17, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+Gpio tx(0, 18, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH);
+
+Timer tmr_led(func_tmr_led, Timer::DEC);
 
 void inicializacion( void )
 {

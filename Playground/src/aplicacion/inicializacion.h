@@ -10,12 +10,10 @@
 
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
-
-extern Gpio pulsador_0;
-extern Gpio pulsador_1;
-extern Gpio pulsador_2;
-extern Gpio pulsador_3;
-
+extern DriverStepper pap;
+extern Gpio rx;
+extern Gpio tx;
+extern Timer tmr_led;
 
 void inicializacion( void );
 

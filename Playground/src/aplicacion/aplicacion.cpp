@@ -17,3 +17,9 @@ void MiFuncionSysTickCallback( void )
 
 // ── Funciones de la aplicación ────────────────────────────────────────────
 // (implementar aquí los callbacks y la lógica pedida por el enunciado)
+
+void func_tmr_led()
+{
+    tx.SetTogglePin();
+    tmr_led.SetTimer(1);
+}

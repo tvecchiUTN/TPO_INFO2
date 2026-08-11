@@ -10,5 +10,6 @@
 void MiFuncionSysTickCallback( void );
 
 // (agregar prototipos de callbacks y funciones de la aplicación)
+void func_tmr_led();
 
 #endif /* APLICACION_H_ */
