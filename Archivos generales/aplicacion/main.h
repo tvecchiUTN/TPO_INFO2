@@ -19,7 +19,6 @@
 #include "DigitalOutputs.h"
 #include "DigitalInputs.h"
 #include "DriverStepper.h"
-#include "sensorHall.h"
 #include "inicializacion.h"
 #include "aplicacion.h"
 
