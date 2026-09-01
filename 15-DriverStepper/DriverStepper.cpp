@@ -63,6 +63,14 @@ void DriverStepper::moveTicks(uint32_t waitMs)
     }
 }
 
+void DriverStepper::setTicks(uint32_t waitMs)
+{
+    if (m_error != Gpio::ERROR)
+    {
+        m_waitTicks = waitMs;
+    }
+}
+
 void DriverStepper::setSteppDir(stepperDir_t stepDir)
 {
     if (m_error != Gpio::ERROR)
@@ -86,12 +94,31 @@ void DriverStepper::toogleSteppDir()
     }
 }
 
+void DriverStepper::startDriver()
+{
+    enStart();
+    digitalStart();
+}
+
+void DriverStepper::stopDriver()
+{
+    enStop();
+    digitalStop();
+}
+
+void DriverStepper::digitalStart()
+{
+    if (m_error != Gpio::ERROR)
+    {
+        m_activateMove = true;
+    }
+}
+
 void DriverStepper::digitalStop()
 {
     if (m_error != Gpio::ERROR)
     {
         m_activateMove = false;
-        m_pul.ClrPin();
     }
 }
 

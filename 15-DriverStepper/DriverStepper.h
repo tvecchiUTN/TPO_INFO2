@@ -18,6 +18,15 @@ private:
 
     Gpio::error_t m_error;
 
+private:
+    void digitalStart();
+
+    void digitalStop();
+
+    void enStart();
+
+    void enStop();
+
 public:
     enum stepperDir_t
     {
@@ -35,15 +44,15 @@ public:
 
     void moveTicks(uint32_t waitTicks);
 
+    void setTicks(uint32_t waitTicks);
+
     void setSteppDir(stepperDir_t stepDir);
 
     void toogleSteppDir();
 
-    void digitalStop();
+    void startDriver();
 
-    void enStart();
-
-    void enStop();
+    void stopDriver();
 };
 
 #endif
