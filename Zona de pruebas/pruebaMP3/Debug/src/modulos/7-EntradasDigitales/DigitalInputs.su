@@ -1,0 +1,11 @@
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\1-io/Inputs.h:23:11:Inputs::~Inputs()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\1-io/Inputs.h:23:11:virtual Inputs::~Inputs()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\1-io/Outputs.h:50:11:Outputs::~Outputs()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\1-io/Outputs.h:50:11:virtual Outputs::~Outputs()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\2-gpio/Gpio.h:80:3:Gpio::~Gpio()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\2-gpio/Gpio.h:80:3:virtual Gpio::~Gpio()	16	static
+../src/modulos/7-EntradasDigitales/DigitalInputs.cpp:10:1:DigitalInputs::DigitalInputs(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+../src/modulos/7-EntradasDigitales/DigitalInputs.cpp:18:9:uint8_t DigitalInputs::get()	16	static
+../src/modulos/7-EntradasDigitales/DigitalInputs.cpp:22:6:virtual void DigitalInputs::handlerDelPeriferico()	32	static
+../src/modulos/7-EntradasDigitales/DigitalInputs.cpp:33:1:DigitalInputs::~DigitalInputs()	16	static
+../src/modulos/7-EntradasDigitales/DigitalInputs.cpp:33:1:virtual DigitalInputs::~DigitalInputs()	16	static

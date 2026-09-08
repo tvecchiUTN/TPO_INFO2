@@ -1,0 +1,7 @@
+../src/modulos/10-Teclado/Teclado.cpp:10:1:Teclado::Teclado(Gpio**, Gpio**)	32	static
+../src/modulos/10-Teclado/Teclado.cpp:32:9:uint8_t Teclado::TecladoHW()	32	static
+../src/modulos/10-Teclado/Teclado.cpp:59:10:uint8_t Teclado::GetKey()	24	static
+../src/modulos/10-Teclado/Teclado.cpp:68:6:virtual void Teclado::handlerDelPeriferico()	32	static
+../src/modulos/10-Teclado/Teclado.cpp:78:6:void Teclado::TecladoSW(uint8_t)	16	static
+../src/modulos/10-Teclado/Teclado.cpp:109:1:Teclado::~Teclado()	16	static
+../src/modulos/10-Teclado/Teclado.cpp:109:1:virtual Teclado::~Teclado()	16	static

@@ -1,0 +1,4 @@
+../src/modulos/11-Usart/cola_circular.cpp:3:1:ColaCircular::ColaCircular(uint32_t)	16	static
+../src/modulos/11-Usart/cola_circular.cpp:9:1:ColaCircular::~ColaCircular()	16	static
+../src/modulos/11-Usart/cola_circular.cpp:17:9:uint8_t ColaCircular::push(uint8_t)	16	static
+../src/modulos/11-Usart/cola_circular.cpp:25:9:uint8_t ColaCircular::pop(uint8_t&)	16	static

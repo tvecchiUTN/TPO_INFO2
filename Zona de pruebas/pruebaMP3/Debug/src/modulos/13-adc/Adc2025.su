@@ -1,0 +1,27 @@
+../src/modulos/13-adc/Adc2025.cpp:75:1:AnalogInput::AnalogInput(uint8_t, resultado_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:83:1:AnalogInput::AnalogInput(uint8_t, int32_t (*)(int32_t))	24	static
+../src/modulos/13-adc/Adc2025.cpp:91:6:void AnalogInput::InicializarADC()	16	static
+../src/modulos/13-adc/Adc2025.cpp:141:6:void AnalogInput::Set_mode_end_of_conversion(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:146:6:void AnalogInput::Set_mode_end_of_sequence(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:151:6:void AnalogInput::Enable_sequence(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:156:6:void AnalogInput::Enable_interrupt(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:161:6:void AnalogInput::Disable_interrupt(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:166:6:void AnalogInput::Set_clk_div(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:172:6:void AnalogInput::Set_channels(uint8_t, uint16_t)	24	static
+../src/modulos/13-adc/Adc2025.cpp:180:6:void AnalogInput::Start_conversion(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:185:6:void AnalogInput::Set_burst_mode(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:192:6:void AnalogInput::Set_single_sequence_mode(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:199:6:void AnalogInput::Set_step_mode(uint8_t)	16	static
+../src/modulos/13-adc/Adc2025.cpp:207:6:void AnalogInput::SeqA_IRQHandler()	24	static
+../src/modulos/13-adc/Adc2025.cpp:233:6:void AnalogInput::SeqB_IRQHandler()	16	static
+../src/modulos/13-adc/Adc2025.cpp:239:6:void AnalogInput::Thcmp_IRQHandler()	16	static
+../src/modulos/13-adc/Adc2025.cpp:245:6:void AnalogInput::Ovr_IRQHandler()	16	static
+../src/modulos/13-adc/Adc2025.cpp:251:6:void AnalogInput::Calibrar()	32	static
+../src/modulos/13-adc/Adc2025.cpp:278:6:void ADC_SEQA_IRQHandler()	8	static
+../src/modulos/13-adc/Adc2025.cpp:284:6:void ADC_SEQB_IRQHandler()	8	static
+../src/modulos/13-adc/Adc2025.cpp:290:6:void ADC_THCMP_IRQHandler()	8	static
+../src/modulos/13-adc/Adc2025.cpp:296:6:void ADC_OVR_IRQHandler()	8	static
+../src/modulos/13-adc/Adc2025.cpp:303:9:int32_t AnalogInput::Get_resultado()	24	static
+../src/modulos/13-adc/Adc2025.cpp:324:10:uint32_t AnalogInput::Promedio()	24	static
+../src/modulos/13-adc/Adc2025.cpp:336:1:AnalogInput::~AnalogInput()	16	static
+../src/modulos/13-adc/Adc2025.cpp:336:1:virtual AnalogInput::~AnalogInput()	16	static
