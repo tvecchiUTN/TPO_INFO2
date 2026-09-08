@@ -40,11 +40,11 @@ public:
 
     void HandlerDelPeriferico();
 
+    void setTicks(uint32_t waitTicks);
+
     void freeMove();
 
-    void moveTicks(uint32_t waitTicks);
-
-    void setTicks(uint32_t waitTicks);
+    void ticksMove(uint32_t waitTicks);
 
     void setSteppDir(stepperDir_t stepDir);
 

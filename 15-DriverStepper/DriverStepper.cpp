@@ -54,7 +54,7 @@ void DriverStepper::freeMove()
     }
 }
 
-void DriverStepper::moveTicks(uint32_t waitMs)
+void DriverStepper::ticksMove(uint32_t waitMs)
 {
     if (m_error != Gpio::ERROR)
     {
