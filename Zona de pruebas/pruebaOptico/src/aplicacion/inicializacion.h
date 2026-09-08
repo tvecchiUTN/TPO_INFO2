@@ -10,7 +10,9 @@
 
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
+extern Gpio LED_ROJO;
 
+extern DigitalInputs Rx_OPTICO;
 
 void inicializacion( void );
 
