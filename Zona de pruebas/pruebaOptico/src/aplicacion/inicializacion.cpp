@@ -9,7 +9,9 @@
 
 // ── Instanciación de objetos globales ─────────────────────────────────────
 // (completar con los objetos del enunciado)
+Gpio LED_ROJO(1, 0, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::LOW);
 
+DigitalInputs Rx_OPTICO(0, 16, Gpio::INACTIVE, Gpio::LOW);
 
 void inicializacion( void )
 {

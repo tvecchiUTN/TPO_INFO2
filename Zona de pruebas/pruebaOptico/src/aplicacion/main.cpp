@@ -10,10 +10,19 @@ int main( void )
     // ── Inicialización — NO modificar ────────────────────────────────────
     inicializacion();
 
+    LED_ROJO.SetPin();
     // ── Loop principal ───────────────────────────────────────────────────
-    while( 1 ) {
+    while( 1 )
+    {
 
-        // (implementar la lógica del enunciado)
+        if(Rx_OPTICO.get())
+        {
+            LED_ROJO.ClrPin();
+        }
+        else
+        {
+        	LED_ROJO.SetPin();
+        }
 
     }
 
