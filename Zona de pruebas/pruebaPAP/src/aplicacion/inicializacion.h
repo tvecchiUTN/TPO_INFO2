@@ -11,6 +11,11 @@
 // ── Declaraciones extern de objetos globales ──────────────────────────────
 // (completar según los objetos instanciados en inicializacion.cpp)
 
+extern DriverStepper motorPAP;
+
+extern Gpio LED_ROJO;
+
+extern Gpio LED_AZUL;
 
 void inicializacion( void );
 
