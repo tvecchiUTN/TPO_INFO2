@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proyecto>
+    <general>
+        <nombre>pruebaAscensorMdE</nombre>
+        <autores>Rodrigo Suarez</autores>
+        <creacion>13-09-2026 19:33:25</creacion>
+        <modificacion>13-09-2026 19:33:28</modificacion>
+        <carpeta>C:/Users/tomas/Github/TPO_INFO2/Zona de pruebas</carpeta>
+        <descripcion/>
+    </general>
+    <configuracion>
+        <hardware/>
+        <target/>
+    </configuracion>
+    <recursos>
+        <archivosC/>
+        <archivosH/>
+    </recursos>
+    <maquinas/>
+    <eventos/>
+    <acciones/>
+    <variables/>
+    <constantes>
+        <cons0>TRUE,1</cons0>
+        <cons1>FALSE,0</cons1>
+        <cons2>ON,1</cons2>
+        <cons3>OFF,0</cons3>
+    </constantes>
+    <comentarios/>
+</proyecto>
