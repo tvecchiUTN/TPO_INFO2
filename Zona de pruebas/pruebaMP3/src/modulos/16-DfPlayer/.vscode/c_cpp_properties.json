@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/aplicacion",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/firmware",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/01-io",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/02-gpio",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/02-gpio",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/03-IntExt",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/04-PerifericoTemporizado",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/05-Timers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/06-MultiplesTimers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/06-MultiplesTimers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/07-SalidasDigitales",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/08-EntradasDigitales",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display/09A-barrido",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display/09A-barrido/barrido-interfaz",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display/09B-segmentos",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display/09B-segmentos/segmentos-interfaz",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/09-Display/09C-display",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/10-Teclado",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/11-Usart",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/12-lcd",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/13-adc",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/14-dac",
+                "C:/Users/tomas/Github/TPO_INFO2/15-DriverStepper"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-arm"
+        }
+    ],
+    "version": 4
+}

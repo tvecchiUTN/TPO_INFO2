@@ -37,6 +37,7 @@ src/modulos/11-Usart \
 src/modulos/12-lcd \
 src/modulos/13-adc \
 src/modulos/14-dac \
+src/modulos/16-DfPlayer \
 src/modulos/2-gpio \
 src/modulos/3-PerifericoTemporizado \
 src/modulos/4-Timers \

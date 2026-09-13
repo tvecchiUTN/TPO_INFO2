@@ -1,6 +1,6 @@
-../src/aplicacion/main.cpp:32:6:void cmd_play(data_MP3_t*)	16	static
-../src/aplicacion/main.cpp:46:6:void cmd_specify_FolderTrack(data_MP3_t*, uint8_t, uint8_t)	16	static
-../src/aplicacion/main.cpp:64:6:void timeLimit()	8	static
-../src/aplicacion/main.cpp:69:5:int main()	48	static
-../src/aplicacion/main.cpp:106:1:void __static_initialization_and_destruction_0()	40	static
-../src/aplicacion/main.cpp:106:1:cpp)	8	static
+../src/aplicacion/main.cpp:23:6:void testerMets()	8	static
+../src/aplicacion/main.cpp:123:5:int main()	8	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:17:7:DfPlayer::~DfPlayer()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:17:7:virtual DfPlayer::~DfPlayer()	16	static
+../src/aplicacion/main.cpp:135:1:void __static_initialization_and_destruction_0()	16	static
+../src/aplicacion/main.cpp:135:1:cpp)	8	static

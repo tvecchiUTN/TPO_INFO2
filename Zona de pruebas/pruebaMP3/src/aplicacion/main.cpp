@@ -13,93 +13,122 @@
 #include <cr_section_macros.h>
 #include "main.h"
 
-Uart testSend(0, 0, 16, 0, 17, 9600, Uart::ocho_bits, Uart::NoParidad, 40, 40);
+DfPlayer test(0, 0, 16, 0, 17);
 
-typedef struct
+//Gpio LEDROJO(1, 0, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::LOW);
+//DigitalInputs pulsador(0, 14, Gpio::PULLUP, Gpio::INPUT, Gpio::LOW);
+
+Timer t_testerMP3(Timer::SEG);
+
+void testerMets()
 {
-    uint8_t startByte;
-    uint8_t Version;
-    uint8_t Len;
-    uint8_t CMD;
-    uint8_t FeedBack;
-    uint8_t para1;
-    uint8_t para2;
-    uint8_t checksum1;
-    uint8_t checksum2;
-    uint8_t endByte;
-} data_MP3_t;
+	static uint8_t index = 0;
 
-void cmd_play(data_MP3_t *InitMP3)
-{
-    InitMP3->startByte = 0X7E;
-    InitMP3->Version = 0XFF;
-    InitMP3->Len = 6;
-    InitMP3->CMD = 0x0D;
-    InitMP3->FeedBack = 0x00;
-    InitMP3->para1 = 0X00;
-    InitMP3->para2 = 0X00;
-    InitMP3->checksum1 = 0XFE;
-    InitMP3->checksum2 = 0XEE;
-    InitMP3->endByte = 0XEF;
-}
+	switch(index)
+	{
+		case 0:
+			test.playNext();
+		break;
 
-void cmd_specify_FolderTrack(data_MP3_t *InitMP3, uint8_t folder, uint8_t track)
-{
-    InitMP3->startByte = 0X7E;
-    InitMP3->Version = 0XFF;
-    InitMP3->Len = 6;
-    InitMP3->CMD = 0x0F;
-    InitMP3->FeedBack = 0x00;
-    InitMP3->para1 = folder;
-    InitMP3->para2 = track;
-    InitMP3->checksum1 = 0X00;
-    InitMP3->checksum1 = 0X00;
-    InitMP3->endByte = 0XEF;
-}
+		case 1:
+			test.playPrev();
+		break;
 
-Timer t_maxWait(Timer::SEG);
-volatile bool isTimeLimit = false;
-volatile bool mp3Hab = false;
+		case 2:
+			test.playTrack(2);
+		break;
 
-void timeLimit()
-{
-    isTimeLimit = true;
+		case 3:
+			test.increaseVol();
+		break;
+		
+		case 4:
+			test.decreaseVol();
+		break;
+
+		case 5:
+			test.specify_Vol(0x15);
+		break;
+
+		case 6:
+			test.specify_EQ(DfPlayer::JAZZ);
+		break;
+
+		case 7:
+			test.specify_single_repe_pb(1);
+		break;
+
+		case 8:
+			test.setSleep();
+		break;
+
+		case 9:
+			test.reset();
+		break;
+
+		case 10:
+			test.play();
+		break;
+
+		case 11:
+			test.pause();
+		break;
+
+		case 12:
+			test.play();
+			test.specify_pbTrack_inFolder(1, 1);
+		break;
+		
+		case 13:
+			test.setting_AudioAmp(10);
+		break;
+
+		case 14:
+			test.set_AllRepeat_pb(DfPlayer::START_REPEAT_PB);
+		break;
+
+		case 15:
+			test.stop(DfPlayer::STOP_ALL_PLAYBACKS);
+		break;
+
+		case 16:
+			test.specify_repeat_playback(1);
+		break;
+
+		case 17:
+			test.random();
+		break;
+
+		case 18:
+			test.set_repeat_current_track(DfPlayer::REPEAT_TURN_OFF);
+		break;
+
+		case 19:
+			test.setDAC(false);
+		break;
+	}
+
+	if(index != 19)
+	{
+		index++;
+	}
+	else 
+	{
+		index = 0;
+	}
+
+	t_testerMP3.SetTimer(10);
 }
 
 int main(void)
 {
 	inicializacion();
 
-    data_MP3_t CMD_MP3 = {0};
-
-    t_maxWait.TimerStart(10, timeLimit, Timer::SEG);
-
-    uint8_t msgRx[10];
+	//t_testerMP3.TimerStart(10, testerMets, Timer::SEG);
 
     while(1)
     {
-        t_maxWait.TmrEvent();
-        if(!isTimeLimit)
-        {
-            void* ret = testSend.RxMensaje((void*)msgRx, 10);
-            if(ret)
-            {
-                if(msgRx[3] == 0x3F)
-                {
-                    isTimeLimit = true;
-                    mp3Hab = true;
-                }
-            }
-        }
-
-        if(mp3Hab)
-        {
-            cmd_specify_FolderTrack(&CMD_MP3, 1, 1);
-            testSend.Transmit((void*)&CMD_MP3, 10);
-
-            cmd_play(&CMD_MP3);
-            testSend.Transmit((void*)&CMD_MP3, 10);
-        }
+    	t_testerMP3.TmrEvent();
     }
 
     return 0;

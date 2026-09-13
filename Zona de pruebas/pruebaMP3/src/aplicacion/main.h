@@ -32,6 +32,7 @@
 #include "Lcd.h"
 #include "Adc2025.h"
 #include "dac2025.h"
+#include "DfPlayer.h"
 #include "aplicacion.h"
 
 
