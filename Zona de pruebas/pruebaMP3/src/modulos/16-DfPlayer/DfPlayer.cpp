@@ -12,6 +12,7 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
     START_BYTE = 0x7E;
     VERSION = 0xFF;
     LEN = 0x06;
+    FEEDBACK = 0X0;
     END_BYTE = 0xEF;
 
     isAvailable = NO_AVAILABLE;
@@ -40,17 +41,16 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
                 void *ret = m_serialCOM.RxMensaje((void *)msgRx, 10);
                 if (ret && msgRx[3] == 0x3f)
                 {    
-                    isAvailable = SELECTING_SD;   
+                    isAvailable = SELECTING_SD;
+                    specify_pbDevice(SD_CARD);
+                    m_ticksWait = 200;
+                    isAvailable = SELECTING_SD;
+                    return;
                 }
-                specify_pbDevice(SD_CARD);
-                m_ticksWait = 200;
-                isAvailable = SELECTING_SD;
-                return;
             }
             else if (isAvailable == SELECTING_SD)
             {
                 isAvailable = AVAILABLE;
-                specify_pbTrack_inFolder(1, 0);
                 return;
             }
         }
@@ -123,7 +123,7 @@ void DfPlayer::decreaseVol()
     sendMsg();
 }
 
-void DfPlayer::specify_Vol(uint16_t volDesired)
+void DfPlayer::specify_Vol(uint8_t volDesired)
 {
     uint16_t vol = volDesired;
 
@@ -141,19 +141,19 @@ void DfPlayer::specify_Vol(uint16_t volDesired)
 
 void DfPlayer::specify_EQ(typeEQ_t EQ)
 {
-    createMsg(0x07, 0, (uint8_t)EQ);
+    createMsg(0x07, 0, EQ);
     sendMsg();
 }
 
 void DfPlayer::specify_single_repe_pb(uint8_t number_track)
 {
-    createMsg(0x07, 0, number_track);
+    createMsg(0x08, 0, number_track);
     sendMsg();
 }
 
 void DfPlayer::specify_pbDevice(playback_device_t pb_device)
 {
-    createMsg(0x08, 0, (uint8_t)pb_device);
+    createMsg(0x09, 0, pb_device);
     sendMsg();
 }
 
@@ -201,7 +201,7 @@ void DfPlayer::setting_AudioAmp(uint8_t setGain)
 
 void DfPlayer::set_AllRepeat_pb(repeat_playback_t repeat_playback)
 {
-    createMsg(0x11, 0, (uint8_t)repeat_playback);
+    createMsg(0x11, 0, repeat_playback);
     sendMsg();
 }
 
@@ -257,7 +257,7 @@ void DfPlayer::random()
 
 void DfPlayer::set_repeat_current_track(repeat_track_t repeat_track)
 {
-    createMsg(0x19, 0, (uint8_t)repeat_track);
+    createMsg(0x19, 0, repeat_track);
     sendMsg();
 }
 

@@ -27,104 +27,26 @@ void testerMets()
 	switch(index)
 	{
 		case 0:
-			test.playNext();
+			test.setDAC(false);
 		break;
 
 		case 1:
-			test.playPrev();
-		break;
-
-		case 2:
-			test.playTrack(2);
-		break;
-
-		case 3:
-			test.increaseVol();
-		break;
-		
-		case 4:
-			test.decreaseVol();
-		break;
-
-		case 5:
-			test.specify_Vol(0x15);
-		break;
-
-		case 6:
-			test.specify_EQ(DfPlayer::JAZZ);
-		break;
-
-		case 7:
-			test.specify_single_repe_pb(1);
-		break;
-
-		case 8:
-			test.setSleep();
-		break;
-
-		case 9:
-			test.reset();
-		break;
-
-		case 10:
 			test.play();
-		break;
-
-		case 11:
-			test.pause();
-		break;
-
-		case 12:
-			test.play();
-			test.specify_pbTrack_inFolder(1, 1);
-		break;
-		
-		case 13:
-			test.setting_AudioAmp(10);
-		break;
-
-		case 14:
-			test.set_AllRepeat_pb(DfPlayer::START_REPEAT_PB);
-		break;
-
-		case 15:
-			test.stop(DfPlayer::STOP_ALL_PLAYBACKS);
-		break;
-
-		case 16:
-			test.specify_repeat_playback(1);
-		break;
-
-		case 17:
-			test.random();
-		break;
-
-		case 18:
-			test.set_repeat_current_track(DfPlayer::REPEAT_TURN_OFF);
-		break;
-
-		case 19:
-			test.setDAC(false);
 		break;
 	}
 
-	if(index != 19)
+	if(index != 1)
 	{
 		index++;
+		t_testerMP3.SetTimer(5);
 	}
-	else 
-	{
-		index = 0;
-	}
-
-	t_testerMP3.SetTimer(10);
 }
 
 int main(void)
 {
 	inicializacion();
 
-	//t_testerMP3.TimerStart(10, testerMets, Timer::SEG);
+	t_testerMP3.TimerStart(5, testerMets, Timer::SEG);
 
     while(1)
     {
