@@ -1,11 +1,12 @@
 #include "main.h"
-#include "DfPlayer.h"
+#include "DfPlayerCom.h"
 
 #define NO_AVAILABLE 0
 #define SELECTING_SD 1
 #define AVAILABLE 2
 
-DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx, uint8_t bitRx) : m_serialCOM(usart, portTx, bitTx, portRx, bitRx, 9600, Uart::ocho_bits, Uart::NoParidad, 40, 40)
+DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx, uint8_t bitRx) 
+    : m_serialCOM(usart, portTx, bitTx, portRx, bitRx, 9600, Uart::ocho_bits, Uart::NoParidad, 40, 40)
 {
     START_BYTE = 0x7E;
     VERSION = 0xFF;
@@ -14,7 +15,7 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
     END_BYTE = 0xEF;
 
     isAvailable = NO_AVAILABLE;
-    m_ticksWait = 1500;
+    m_ticksWait = 1500; // Ticks iniciales para esperar estabilización según datasheet
 
     #ifdef VERSION_2025
         pushCallback();
@@ -37,12 +38,13 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
             {
                 uint8_t msgRx[10];
                 void *ret = m_serialCOM.RxMensaje((void *)msgRx, 10);
+                
+                // Espera el mensaje de inicialización del dispositivo (0x3F)
                 if (ret && msgRx[3] == 0x3f)
                 {    
                     isAvailable = SELECTING_SD;
-                    specify_pbDevice(SD_CARD);
-                    m_ticksWait = 200;
-                    isAvailable = SELECTING_SD;
+                    setPlaybackDevice(SD_CARD);
+                    m_ticksWait = 200; // Según datasheet: esperar 200ms tras inicializar el file system
                     return;
                 }
             }
@@ -59,17 +61,13 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
 
 bool DfPlayer::isMP3_Available() const
 {
-    if(isAvailable == AVAILABLE)
-    {
-        return true;
-    }
-    return false;
+    return (isAvailable == AVAILABLE);
 }
 
 void DfPlayer::createMsg(uint8_t cmd, uint8_t parameter1, uint8_t parameter2)
 {
     uint16_t sum = VERSION + LEN + FEEDBACK + cmd + parameter1 + parameter2;
-    uint16_t aux = 0XFFFF - sum + 1;
+    uint16_t aux = 0XFFFF - sum + 1; // Formula del Checksum según Datasheet
 
     divideWord(aux, CHECKSUM1, CHECKSUM2);
 
@@ -109,23 +107,23 @@ void DfPlayer::playTrack(uint16_t trackSelect)
     sendMsg();
 }
 
-void DfPlayer::increaseVol()
+void DfPlayer::increaseVolume()
 {
     createMsg(0x04, 0, 0);
     sendMsg();
 }
 
-void DfPlayer::decreaseVol()
+void DfPlayer::decreaseVolume()
 {
     createMsg(0x05, 0, 0);
     sendMsg();
 }
 
-void DfPlayer::specify_Vol(uint8_t volDesired)
+void DfPlayer::setVolume(uint8_t volDesired)
 {
     uint16_t vol = volDesired;
 
-    if (volDesired > 30)
+    if (volDesired > 30) // Límite máximo de volumen según datasheet
     {
         vol = 30;
     }
@@ -137,19 +135,19 @@ void DfPlayer::specify_Vol(uint8_t volDesired)
     sendMsg();
 }
 
-void DfPlayer::specify_EQ(typeEQ_t EQ)
+void DfPlayer::setEQ(typeEQ_t EQ)
 {
     createMsg(0x07, 0, EQ);
     sendMsg();
 }
 
-void DfPlayer::specify_single_repe_pb(uint8_t number_track)
+void DfPlayer::playAndRepeatTrack(uint8_t number_track)
 {
     createMsg(0x08, 0, number_track);
     sendMsg();
 }
 
-void DfPlayer::specify_pbDevice(playback_device_t pb_device)
+void DfPlayer::setPlaybackDevice(playback_device_t pb_device)
 {
     createMsg(0x09, 0, pb_device);
     sendMsg();
@@ -179,16 +177,16 @@ void DfPlayer::pause()
     sendMsg();
 }
 
-void DfPlayer::specify_pbTrack_inFolder(uint8_t folder, uint8_t track)
+void DfPlayer::playTrackInFolder(uint8_t folder, uint8_t track)
 {
     createMsg(0x0F, folder, track);
     sendMsg();
 }
 
-void DfPlayer::setting_AudioAmp(uint8_t setGain)
+void DfPlayer::setAudioGain(uint8_t setGain)
 {
     uint8_t gain = setGain;
-    if(setGain > 31)
+    if(setGain > 31) // Amplificación límite es 31 (0 a 31)
     {
         gain = 31;
     }
@@ -197,13 +195,13 @@ void DfPlayer::setting_AudioAmp(uint8_t setGain)
     sendMsg();
 }
 
-void DfPlayer::set_AllRepeat_pb(repeat_playback_t repeat_playback)
+void DfPlayer::repeatAll(repeat_playback_t repeat_playback)
 {
     createMsg(0x11, 0, repeat_playback);
     sendMsg();
 }
 
-void DfPlayer::specify_pb_folderMP3(uint16_t number_track)
+void DfPlayer::playTrackInMP3Folder(uint16_t number_track)
 {
     uint8_t par1, par2;
 
@@ -213,7 +211,7 @@ void DfPlayer::specify_pb_folderMP3(uint16_t number_track)
     sendMsg();
 }
 
-void DfPlayer::insertAdv(uint16_t number_track)
+void DfPlayer::insertAdvert(uint16_t number_track)
 {
     uint8_t par1, par2;
 
@@ -236,7 +234,7 @@ void DfPlayer::stop(type_stop_t type_stop)
     sendMsg();
 }
 
-void DfPlayer::specify_repeat_playback(uint8_t folder)
+void DfPlayer::repeatFolder(uint8_t folder)
 {
     uint8_t fold = folder;
     if((folder > 99) || (folder == 0))
@@ -247,13 +245,13 @@ void DfPlayer::specify_repeat_playback(uint8_t folder)
     sendMsg();
 }
 
-void DfPlayer::random()
+void DfPlayer::playRandom()
 {
     createMsg(0x18, 0, 0);
     sendMsg();
 }
 
-void DfPlayer::set_repeat_current_track(repeat_track_t repeat_track)
+void DfPlayer::repeatCurrentTrack(repeat_track_t repeat_track)
 {
     createMsg(0x19, 0, repeat_track);
     sendMsg();
@@ -261,16 +259,7 @@ void DfPlayer::set_repeat_current_track(repeat_track_t repeat_track)
 
 void DfPlayer::setDAC(bool turnOFF_dac)
 {
-    uint8_t par2;
-    if (turnOFF_dac)
-    {
-        par2 = 1;
-    }
-    else
-    {
-        par2 = 0;
-    }
-
+    uint8_t par2 = turnOFF_dac ? 1 : 0;
     createMsg(0x1A, 0, par2);
     sendMsg();
 }

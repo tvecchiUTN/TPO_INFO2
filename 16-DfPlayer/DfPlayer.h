@@ -16,14 +16,16 @@
 
 #define SIZE_MSG 10
 
+#define VERSION_2025
+
 /**
  * @brief Clase para el control del módulo reproductor MP3 FN-M16P (DFPlayer).
  * Se comunica mediante UART y permite el control asíncrono de la reproducción
  * de archivos de audio ubicados en una tarjeta SD o memoria USB.
- * 
- * 
- * 
-*/
+ *
+ *
+ *
+ */
 class DfPlayer : public PerifericoTemporizado
 {
 public:
@@ -34,7 +36,7 @@ public:
         ROCK,
         JAZZ,
         CLASSIC,
-        BASS  
+        BASS
     };
 
 private:
@@ -49,11 +51,16 @@ private:
 
     void sendMsg();
 
-    void divideWord(uint16_t word, uint8_t& r_par1, uint8_t& r_par2);
+    void divideWord(uint16_t word, uint8_t &r_par1, uint8_t &r_par2);
+
 public:
     DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx, uint8_t bitRx);
 
+#ifdef VERSION_2025
     void handlerDelPeriferico();
+#else
+    void HandlerDelPeriferico();
+#endif
 
     bool isMP3_Available() const;
 
@@ -103,7 +110,6 @@ public:
     void specify_pb_folderMP3(uint16_t number_track);
 
     void insertAdv(uint16_t number_track);
-
 
     enum type_stop_t
     {
