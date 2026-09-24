@@ -28,17 +28,69 @@ void testerMets()
 	{
 		case 0:
 			test.setDAC(false);
+			test.specify_repeat_playback(1);
 		break;
 
 		case 1:
-			test.play();
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 2:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 3:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 4:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 5:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 6:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 7:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 8:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 9:
+			//test.play();
+			test.insertAdv(index-1);
+		break;
+
+		case 10:
+			//test.play();
+			test.insertAdv(index-1);
 		break;
 	}
 
-	if(index != 1)
+	if(index != 10)
 	{
 		index++;
-		t_testerMP3.SetTimer(5);
+		t_testerMP3.SetTimer(10);
+	}
+	else
+	{
+		index = 1;
+		t_testerMP3.SetTimer(10);
 	}
 }
 

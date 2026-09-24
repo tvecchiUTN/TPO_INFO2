@@ -1,6 +1,6 @@
 ../src/aplicacion/main.cpp:23:6:void testerMets()	8	static
-../src/aplicacion/main.cpp:45:5:int main()	8	static
-C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:27:7:DfPlayer::~DfPlayer()	16	static
-C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:27:7:virtual DfPlayer::~DfPlayer()	16	static
-../src/aplicacion/main.cpp:57:1:void __static_initialization_and_destruction_0()	16	static
-../src/aplicacion/main.cpp:57:1:cpp)	8	static
+../src/aplicacion/main.cpp:97:5:int main()	8	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:29:7:DfPlayer::~DfPlayer()	16	static
+C:\Users\tomas\Github\TPO_INFO2\Zona de pruebas\pruebaMP3\src\modulos\16-DfPlayer/DfPlayer.h:29:7:virtual DfPlayer::~DfPlayer()	16	static
+../src/aplicacion/main.cpp:109:1:void __static_initialization_and_destruction_0()	16	static
+../src/aplicacion/main.cpp:109:1:cpp)	8	static

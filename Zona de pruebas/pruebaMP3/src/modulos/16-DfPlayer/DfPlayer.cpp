@@ -5,8 +5,6 @@
 #define SELECTING_SD 1
 #define AVAILABLE 2
 
-#define VERSION_2025
-
 DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx, uint8_t bitRx) : m_serialCOM(usart, portTx, bitTx, portRx, bitRx, 9600, Uart::ocho_bits, Uart::NoParidad, 40, 40)
 {
     START_BYTE = 0x7E;
