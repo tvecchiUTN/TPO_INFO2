@@ -11,7 +11,7 @@
 // (completar con los objetos del enunciado)
 Gpio LED_ROJO(1, 0, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::LOW);
 
-DigitalInputs Rx_OPTICO(0, 16, Gpio::INACTIVE, Gpio::LOW);
+Gpio Rx_OPTICO(0, 16, Gpio::INACTIVE, Gpio::INPUT, Gpio::HIGH);
 
 void inicializacion( void )
 {

@@ -15,7 +15,7 @@ int main( void )
     while( 1 )
     {
 
-        if(Rx_OPTICO.get())
+        if(Rx_OPTICO.GetPin())
         {
             LED_ROJO.ClrPin();
         }
