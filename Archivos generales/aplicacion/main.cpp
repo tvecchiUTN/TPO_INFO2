@@ -11,9 +11,8 @@ int main( void )
     inicializacion();
 
     // ── Loop principal ───────────────────────────────────────────────────
-    while( 1 ) {
-
-        // (implementar la lógica del enunciado)
+    while( 1 ) 
+    {
 
     }
 

@@ -6,7 +6,7 @@
  * Generated linker script file for LPC845
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v25.6 [Build 136] [2025-06-27] on 14 sep. 2026 21:53:50
+ * MCUXpresso IDE v25.6 [Build 136] [2025-06-27] on 19 oct. 2026 20:50:37
  */
 
 INCLUDE "testMP3_Debug_library.ld"

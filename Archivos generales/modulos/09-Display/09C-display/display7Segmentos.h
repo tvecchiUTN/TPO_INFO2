@@ -64,7 +64,7 @@ class Display7Segmentos : public PerifericoTemporizado
 			Segmentos * segmentos , Barrido *barrido,
 			struct GrupoDeDigitos *GruposDeDigitos,
 			uint8_t *pIndiceCorrector = nullptr);
-		void handlerDelPeriferico (void);
+		void HandlerDelPeriferico (void);
 		void SetDisplay( uint32_t valor , nDisplay dsp );
 		virtual ~Display7Segmentos();
 };

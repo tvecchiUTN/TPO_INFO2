@@ -19,12 +19,12 @@
 #include "MultiplesTimers.h"
 #include "DigitalOutputs.h"
 #include "DigitalInputs.h"
-#include "DriverStepper.h"
 #include "display7Segmentos.h"
 #include "Uart.h"
 #include "Lcd.h"
 #include "Adc2025.h"
 #include "dac2025.h"
+#include "DriverStepper.h"
 #include "inicializacion.h"
 #include "aplicacion.h"
 

@@ -26,7 +26,7 @@ Teclado::Teclado ( Gpio **r , Gpio **s = nullptr):m_ret(r),m_scn(s){
 		m_MaxReturns = i;
 
 
-		pushCallback();
+		AddPerifericoTemporizado(this);
 }
 
 uint8_t Teclado::TecladoHW ( void ) {
@@ -65,7 +65,7 @@ uint8_t  Teclado::GetKey ( void )
 	return key;
 }
 
-void Teclado::handlerDelPeriferico (void) {
+void Teclado::HandlerDelPeriferico (void) {
 	uint8_t  tecla;
 	m_ticks--;
     if ( !m_ticks ){

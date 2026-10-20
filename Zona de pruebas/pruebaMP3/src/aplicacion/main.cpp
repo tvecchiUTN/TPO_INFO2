@@ -94,15 +94,30 @@ void testerMets()
 	}
 }
 
+Uart testU(1, 0, 25, 0, 24, 9600, Uart::ocho_bits, Uart::NoParidad, 64, 64);
+
+void printf(const char* str)
+{
+	testU.Transmit(str);
+}
+
 int main(void)
 {
 	inicializacion();
 
-	t_testerMP3.TimerStart(5, testerMets, Timer::SEG);
+	//t_testerMP3.TimerStart(5, testerMets, Timer::SEG);
 
+	uint8_t msg[5];
+	void* msgRx = nullptr;
     while(1)
     {
-    	t_testerMP3.TmrEvent();
+    	//t_testerMP3.TmrEvent();
+		msgRx = testU.RxMensaje(msg, 5);
+
+		if(msgRx)
+		{
+			printf("Mensaje recibido\n\r");
+		}
     }
 
     return 0;

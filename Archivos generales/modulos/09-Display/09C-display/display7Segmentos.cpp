@@ -60,10 +60,10 @@ Display7Segmentos::Display7Segmentos(
 	m_IndiceBarrido = 0;
 	m_BufferDisplay = new uint8_t[ m_CantiadDeDigitos ];
 	m_barrido->SetNDigitos( m_CantiadDeDigitos );
-	pushCallback();
+	AddPerifericoTemporizado(this);
 }
 
-void Display7Segmentos::handlerDelPeriferico( )
+void Display7Segmentos::HandlerDelPeriferico( )
 {
 	m_ticks--;
 	if ( !m_ticks )

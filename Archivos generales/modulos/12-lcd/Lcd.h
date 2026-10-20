@@ -33,7 +33,7 @@ class Lcd:public PerifericoTemporizado
 	public:
 		Lcd(Gpio** bus);
 		void Set( const char *string , uint8_t line , uint8_t pos );
-		void handlerDelPeriferico(void);
+		void HandlerDelPeriferico(void);
 		virtual ~Lcd();
 
 	private:

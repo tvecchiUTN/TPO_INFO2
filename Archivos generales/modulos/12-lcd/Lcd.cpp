@@ -36,7 +36,7 @@ Lcd::Lcd( Gpio** bus):m_bus( bus )
 	m_lcdInxOut = 0;;
 	m_lcdDataCount = 0;
 	// Lo engancho en la lista
-	pushCallback();
+	AddPerifericoTemporizado(this);
 	m_bus[LCD_EN]->ClrPin();		// EN = 0
 
 	// Demora
@@ -132,7 +132,7 @@ int16_t Lcd::Pop( void )
 }
 
 
-void Lcd::handlerDelPeriferico( void )
+void Lcd::HandlerDelPeriferico( void )
 {
 	int16_t data;
 

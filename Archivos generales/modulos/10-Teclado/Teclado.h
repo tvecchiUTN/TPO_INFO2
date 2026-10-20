@@ -29,7 +29,7 @@ private:
 
 public:
 	Teclado ( Gpio ** , Gpio **);
-	void handlerDelPeriferico ( void );
+	void HandlerDelPeriferico ( void );
 	uint8_t GetKey( void );
 	virtual ~Teclado();
 
