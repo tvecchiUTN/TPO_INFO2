@@ -5,12 +5,12 @@ enum ESTADOS_COMUNICACION
 {
     ESPERANDO_RX,
     PARA_MP3,
-    PARA_PULSADOR
+    PARA_PULSADOR,
+    ENVIAR_DATOS
 };
 
 enum COMANDOS
 {
-    ASCENSOR,
     PULSADORES,
     MUSICA
 };
@@ -22,6 +22,8 @@ enum CMD_MUSICA
     SIGUIENTE,
     ANTERIOR
 };
+
+void init_COM_PC();
 
 void MdE_Comunicacion();
 

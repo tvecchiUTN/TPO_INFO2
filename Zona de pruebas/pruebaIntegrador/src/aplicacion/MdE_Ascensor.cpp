@@ -22,6 +22,8 @@ extern Teclado teclado;
 uint8_t DESTINO = 0;
 uint8_t PISO = 0;
 
+bool huboCambio = false;
+
 void estado_quieto(ESTADOS_ASCENSOR &state)
 {
     if (PISO == DESTINO)
@@ -32,24 +34,29 @@ void estado_quieto(ESTADOS_ASCENSOR &state)
     if (OpticoPB.get())
     {
         PISO = 0;
+        huboCambio = true;
     }
     else if (OpticoP1.get())
     {
         PISO = 1;
+        huboCambio = true;
     }
     else if (OpticoP2.get())
     {
         PISO = 2;
+        huboCambio = true;
     }
     else if (OpticoP3.get())
     {
         PISO = 3;
+        huboCambio = true;
     }
 
     uint8_t tecla = teclado.GetKey();
     if (tecla != NO_KEY && tecla < MAX_PISOS)
     {
         DESTINO = tecla;
+        huboCambio = true;
     }
 
     if (PISO > DESTINO)

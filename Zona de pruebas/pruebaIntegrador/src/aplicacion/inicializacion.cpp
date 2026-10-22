@@ -1,4 +1,5 @@
 #include "main.h"
+#include "MdE_Comunicacion.h"
 
 DigitalInputs OpticoPB(0, 23, Gpio::INACTIVE, Gpio::LOW, 5);
 DigitalInputs OpticoP1(0, 22, Gpio::INACTIVE, Gpio::LOW, 5);
@@ -7,7 +8,7 @@ DigitalInputs OpticoP3(0, 20, Gpio::INACTIVE, Gpio::LOW, 5);
 
 DfPlayer reproductor(0, 0, 16, 0, 17);
 
-Uart comPC(1, 0, 24, 0, 25, 9600, Uart::ocho_bits, Uart::NoParidad, 16, 16);
+Uart comPC(1, 0, 25, 0, 24, 9600, Uart::ocho_bits, Uart::NoParidad, 16, 16);
 
 DriverStepper pasoApaso(1, 0, 1, 1, 1, 2);
 
@@ -31,7 +32,7 @@ Gpio LCD_D6_gpio(0, 11, Gpio::PUSHPULL, Gpio::OUTPUT, Gpio::HIGH);
 
 Gpio *LCD_Bus[] = {&LCD_RS_gpio, &LCD_E_gpio, &LCD_D4_gpio, &LCD_D5_gpio, &LCD_D6_gpio, nullptr};
 
-Lcd displayLCD(LCD_Bus);
+//Lcd displayLCD(LCD_Bus);
 
 void inicializacion( void )
 {
@@ -42,4 +43,6 @@ void inicializacion( void )
     pasoApaso.setSteppDir(DriverStepper::HORARIO);
     pasoApaso.setTicks(10);
     pasoApaso.startDriver();
+
+    init_COM_PC();
 }
