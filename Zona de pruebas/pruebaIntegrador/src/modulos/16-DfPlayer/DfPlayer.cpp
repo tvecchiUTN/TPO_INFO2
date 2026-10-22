@@ -1,5 +1,6 @@
 #include "main.h"
 #include "DfPlayer.h"
+#include "Uart.h"
 
 #define NO_AVAILABLE 0
 #define SELECTING_SD 1
@@ -16,18 +17,10 @@ DfPlayer::DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx,
     isAvailable = NO_AVAILABLE;
     m_ticksWait = 1500;
 
-    #ifdef VERSION_2025
-        pushCallback();
-    #else
-        AddPerifericoTemporizado(this);
-    #endif
+    AddPerifericoTemporizado(this);
 }
 
-#ifdef VERSION_2025
-    void DfPlayer::handlerDelPeriferico()
-#else
-    void DfPlayer::HandlerDelPeriferico()
-#endif
+void DfPlayer::HandlerDelPeriferico()
 {
     if (isAvailable != AVAILABLE)
     {

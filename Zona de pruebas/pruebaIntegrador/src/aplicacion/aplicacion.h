@@ -11,4 +11,6 @@ void MiFuncionSysTickCallback( void );
 
 Gpio::error_t checkError(uint8_t port, uint8_t bit);
 
+#define MAX_PISOS 4
+
 #endif /* APLICACION_H_ */

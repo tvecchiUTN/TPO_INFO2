@@ -3,8 +3,6 @@
 
 //#include <stdint.h>
 
-class Uart; // forward
-
 class ColaCircular {
 public:
     explicit ColaCircular(uint32_t capacidad);

@@ -1,18 +1,19 @@
-/*
- * main.cpp  —  Proyecto Base Parcial 1  —  Informatica II  UTN-FRBA  2026
- */
-
 #include <cr_section_macros.h>
 #include "main.h"
+
+#include "MdE_Ascensor.h"
+#include "MdE_Comunicacion.h"
 
 int main( void )
 {
     // ── Inicialización — NO modificar ────────────────────────────────────
     inicializacion();
 
+    // ── Loop principal ───────────────────────────────────────────────────
     while( 1 ) 
     {
-        
+        MdE_Ascensor();
+        MdE_Comunicacion();
     }
 
     return 0;

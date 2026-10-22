@@ -1,0 +1,28 @@
+#ifndef __MDE_COMUNICACION_H
+#define __MDE_COMUNICACION_H
+
+enum ESTADOS_COMUNICACION
+{
+    ESPERANDO_RX,
+    PARA_MP3,
+    PARA_PULSADOR
+};
+
+enum COMANDOS
+{
+    ASCENSOR,
+    PULSADORES,
+    MUSICA
+};
+
+enum CMD_MUSICA
+{
+    PAUSAR,
+    REPRODUCIR,
+    SIGUIENTE,
+    ANTERIOR
+};
+
+void MdE_Comunicacion();
+
+#endif

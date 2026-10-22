@@ -1,0 +1,28 @@
+-> Motor paso a paso: Requiere 3 pines; enable, direction y step (CHECK de continuidad)
+Enable: PIO1_0, DIG_OUT0 del IO Digitales 
+Direction: PIO1_1, DIG_OUT1 del IO Digitales 
+Step: PIO1_2, DIG_OUT2 del IO Digitales
+
+-> Sensores ópticos: Requiero de 4 pines; uno por cada piso (CHECK de continuidad)
+PisoPB: PIO0_23, BCD_A del 7 segmentos
+Piso 1: PIO0_22, BCD_B del 7 segmentos
+Piso 2: PIO0_21, BCD_C del 7 segmentos
+Piso 3: PIO0_20, BCD_D del 7 segmentos
+
+-> Reproductor MP3 DfPlayer: Requiere de 2 pines para su UART (CHECK de continuidad)
+Tx: PIO0_16, TX1 para comunicaciones
+Rx: PIO0_17, RX1 para comunicaciones
+
+-> Teclado matricial: Requiere de 4 pines o de 5 dependiendo configuración (CHECK de continuidad)
+Fila0: PIO0_28 del Teclado
+Fila1: PIO0_27 del Teclado
+Columna0: PIO0_26 del Teclado
+Columna1: PIO0_15 del Teclado
+Columna2: PIO0_8 del Teclado
+
+-> Display LCD: Requiere de 6 pines para su configuracion (CHECK dudoso, hay resistencias)
+RS: PIO0_1 del LCD
+E: PIO0_14 del LCD
+D4: PIO0_9 del LCD
+D5: PIO0_10 del LCD
+D6: PIO0_11 del LCD

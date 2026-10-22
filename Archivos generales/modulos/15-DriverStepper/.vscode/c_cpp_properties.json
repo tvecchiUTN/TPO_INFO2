@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/aplicacion",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/firmware",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/01-io",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/02-gpio",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/02-gpio",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/03-IntExt",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/04-PerifericoTemporizado",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/05-Timers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/06-MultiplesTimers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/06-MultiplesTimers",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/07-SalidasDigitales",
+                "C:/Users/tomas/Github/TPO_INFO2/Archivos generales/modulos/08-EntradasDigitales",
+                "C:/Users/tomas/Github/TPO_INFO2/16-SensorHall",
+                "C:/Users/tomas/Github/TPO_INFO2/Ascensor"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ]
+        }
+    ],
+    "version": 4
+}

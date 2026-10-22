@@ -1,9 +1,5 @@
-/*
- * main.h  —  Proyecto Base Parcial 1  —  Informatica II  UTN-FRBA  2026
- */
-
-#ifndef MAIN_H_
-#define MAIN_H_
+#ifndef __MAIN_H
+#define __MAIN_H
 
 #include "tipos.h"
 #include "LPC845.h"
@@ -19,17 +15,13 @@
 #include "MultiplesTimers.h"
 #include "DigitalOutputs.h"
 #include "DigitalInputs.h"
-#include "DriverStepper.h"
-#include "DfPlayer.h"
 #include "display7Segmentos.h"
+#include "Teclado.h"
 #include "Uart.h"
 #include "Lcd.h"
-#include "Adc2025.h"
-#include "dac2025.h"
-#include "ascCabina.h"
-#include "ascCOM.h"
-#include "ascPisos.h"
+#include "DriverStepper.h"
+#include "DfPlayer.h"
 #include "inicializacion.h"
 #include "aplicacion.h"
 
-#endif /* MAIN_H_ */
+#endif

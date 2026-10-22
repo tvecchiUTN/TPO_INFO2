@@ -28,7 +28,7 @@ private:
 	uint8_t m_ticks;
 
 public:
-	Teclado ( Gpio ** , Gpio **);
+	Teclado ( Gpio **i , Gpio **o);
 	void HandlerDelPeriferico ( void );
 	uint8_t GetKey( void );
 	virtual ~Teclado();

@@ -2,6 +2,7 @@
 #define __DFPLAYER_H
 
 #include "main.h"
+#include "Uart.h"
 
 #define START_BYTE data_MP3[0]
 #define VERSION data_MP3[1]
@@ -41,6 +42,7 @@ public:
 
 private:
     Uart m_serialCOM;
+
     uint8_t data_MP3[SIZE_MSG];
 
     uint32_t m_ticksWait;
@@ -56,11 +58,7 @@ private:
 public:
     DfPlayer(uint8_t usart, uint8_t portTx, uint8_t bitTx, uint8_t portRx, uint8_t bitRx);
 
-#ifdef VERSION_2025
-    void handlerDelPeriferico();
-#else
     void HandlerDelPeriferico();
-#endif
 
     bool isMP3_Available() const;
 
