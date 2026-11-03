@@ -12,8 +12,8 @@ int main( void )
     // ── Loop principal ───────────────────────────────────────────────────
     while( 1 ) 
     {
-        MdE_Ascensor();
-        MdE_Comunicacion();
+        MdE_Ascensor(); //Maquina de estados del ascensor
+        MdE_Comunicacion(); //Maquina de estados para la comunicacion
     }
 
     return 0;

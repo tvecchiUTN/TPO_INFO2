@@ -1,0 +1,22 @@
+PARTS LIST
+
+691102710002      691102710002    J?
+691102710002      691102710002    J?
+Jack_Stereo_3.5mm CUI_SJ1-3515    P1
+DfPlayer          DFPLAYER_MINI_MP3U1
+EOS
+NET LIST
+
+NODENAME VCC              $
+    J?         1  U1         1
+NODENAME Tx               $
+    J?         2  U1         3
+NODENAME Rx               $
+    J?         1  U1         2
+NODENAME GND              $
+    J?         2  P1         1  U1        10
+NODENAME Audio Right      $
+    P1         2  U1         4
+NODENAME Audio Left       $
+    P1         3  U1         5
+EOS

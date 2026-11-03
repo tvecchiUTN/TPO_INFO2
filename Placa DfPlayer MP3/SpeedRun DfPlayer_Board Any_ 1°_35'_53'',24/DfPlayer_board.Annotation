@@ -1,0 +1,21 @@
+[DesignatorManager]
+LogicalDesignator0=J1
+LogicalPartID0=1
+DocumentName0=DfPlayer_board.SchDoc
+ChannelName0=DfPlayer_board
+UniqueID0=\IVONIKLV
+PhysicalDesignator0=J?
+PhysicalDesignatorLocked0=0
+LogicalDesignator1=J2
+LogicalPartID1=1
+DocumentName1=DfPlayer_board.SchDoc
+ChannelName1=DfPlayer_board
+UniqueID1=\PQFHJEER
+PhysicalDesignator1=J?
+PhysicalDesignatorLocked1=0
+
+[SheetNumberManager]
+SheetNumberOrder=Display Order
+SheetNumberMethod=Increasing
+
+

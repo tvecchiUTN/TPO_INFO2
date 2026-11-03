@@ -15,61 +15,61 @@ extern DriverStepper pasoApaso;
 
 extern Teclado teclado;
 
-#define ASCENSOR_BAJAR pasoApaso.setSteppDir(DriverStepper::HORARIO);
+#define ASCENSOR_BAJAR pasoApaso.setSteppDir(DriverStepper::HORARIO); //Defino bajar como horario
 
-#define ASCENSOR_SUBIR pasoApaso.setSteppDir(DriverStepper::ANTIHORARIO);
+#define ASCENSOR_SUBIR pasoApaso.setSteppDir(DriverStepper::ANTIHORARIO); //Defino subir como antihorario
 
-uint8_t DESTINO = 0;
-uint8_t PISO = 0;
+volatile uint8_t DESTINO = 0; //Destino del ascensor, cambia al presionar una tecla con el matricial o con QT
+volatile uint8_t PISO = 0; //Piso actual del ascensor
 
-bool huboCambio = false;
+volatile bool huboCambio = false; //Variable para mostrar cambios. Se se ha leido, cambiar a false
 
-void estado_quieto(ESTADOS_ASCENSOR &state)
+void estado_quieto(ESTADOS_ASCENSOR &state) //Estado en reposo o ascensor quieto
 {
-    if (PISO == DESTINO)
+    if (PISO == DESTINO) //Verificacion de piso actual y destino
     {
-        pasoApaso.stopDriver();
+        pasoApaso.stopDriver(); //Detengo la cabina
     }
 
-    if (OpticoPB.get())
+    if (OpticoPB.get()) //Sensor PB detectado
     {
-        PISO = 0;
-        huboCambio = true;
+        PISO = 0; //Estoy en piso 0
+        huboCambio = true; //Hubo cambios
     }
     else if (OpticoP1.get())
     {
-        PISO = 1;
-        huboCambio = true;
+        PISO = 1; //Estoy en piso 1
+        huboCambio = true; //Hubo cambios
     }
     else if (OpticoP2.get())
     {
-        PISO = 2;
-        huboCambio = true;
+        PISO = 2; //Estoy en piso 2
+        huboCambio = true; //Hubo cambios
     }
     else if (OpticoP3.get())
     {
-        PISO = 3;
-        huboCambio = true;
+        PISO = 3; //Estoy en piso 3
+        huboCambio = true; //Hubo cambios
     }
 
-    uint8_t tecla = teclado.GetKey();
-    if (tecla != NO_KEY && tecla < MAX_PISOS)
+    uint8_t tecla = teclado.GetKey(); //Variable tecla matricial
+    if (tecla != NO_KEY && tecla < MAX_PISOS) //Si se presiono una tecla y es menor a 4
     {
-        DESTINO = tecla;
-        huboCambio = true;
+        DESTINO = tecla; //El destino es la tecla presionada
+        huboCambio = true; //Hubo cambios
     }
 
-    if (PISO > DESTINO)
+    if (PISO > DESTINO) //EL piso actual es mayor al destino
     {
-        ASCENSOR_BAJAR
-        pasoApaso.startDriver();
-        state = BAJAR;
+        ASCENSOR_BAJAR //Desciendo
+        pasoApaso.startDriver(); //Inicio motor
+        state = BAJAR; //Estoy bajando
     }
-    else if (PISO < DESTINO)
+    else if (PISO < DESTINO) //EL piso actual es menor al destino
     {
-        ASCENSOR_SUBIR
-        pasoApaso.startDriver();
-        state = SUBIR;
+        ASCENSOR_SUBIR //Subo
+        pasoApaso.startDriver(); //Inicio motor
+        state = SUBIR; //Estoy subiendos
     }
 
     // SISTEMA DE SEGURIDAD PARA NO EXCEDERSE
@@ -79,19 +79,21 @@ void estado_quieto(ESTADOS_ASCENSOR &state)
     }
 }
 
-void estado_subir_bajar(ESTADOS_ASCENSOR &state)
+void estado_subir_bajar(ESTADOS_ASCENSOR &state) //Estado de ascensor bajando o subiendo
 {
-    if (OpticoPB.get() || OpticoP1.get() || OpticoP2.get() || OpticoP3.get())
+    if (OpticoPB.get() || OpticoP1.get() || OpticoP2.get() || OpticoP3.get()) //Si detecte cualquier sensor
     {
-        state = QUIETO;
+        state = QUIETO; //Paso al estado queiro para verificar estado
     }
 }
 
-void (*funcs_MdECom[])(ESTADOS_ASCENSOR &estado) = {estado_quieto, estado_subir_bajar, estado_subir_bajar, nullptr};
+//Array de funciones estado, reciben una referencia para modificar el estado de la MdE
+void (*funcs_MdECom[])(ESTADOS_ASCENSOR &estado) = {estado_quieto, estado_subir_bajar, estado_subir_bajar, nullptr}; 
 
+//Maquina de estados del ascensor
 void MdE_Ascensor()
 {
-    static ESTADOS_ASCENSOR state = QUIETO;
+    static ESTADOS_ASCENSOR state = QUIETO; //Inicio en QUIETO
 
     if(funcs_MdECom[state])
     {

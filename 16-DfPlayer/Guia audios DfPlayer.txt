@@ -1,0 +1,17 @@
+Advertencias:
+->Comando numero 0x13
+->Nombre método: insertAdv(Num Track)
+->Orden de audios:
+0000, Planta baja
+0001, Piso 1
+0002, Piso 2
+0003, Piso 3
+0004, bienvenido
+0005, Gracias por su visita
+0006, Asc. bajando
+0007, Asc. subiendo
+0008, Easter Egg N°1
+0009, Fuera de servicio
+0010, Easter Egg N°2
+0011, Easter Egg N°3
+0012, Easter Egg N°4
