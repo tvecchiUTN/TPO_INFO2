@@ -15,3 +15,9 @@ Advertencias:
 0010, Easter Egg N°2
 0011, Easter Egg N°3
 0012, Easter Egg N°4
+
+Canciones: 
+-> Comando numero 0x0F
+-> Carpeta llamada 01
+-> Canciones desde 001 hasta 004 con duración de 1 hora
+-> Método: specify_pbTrack_inFolder(folder, track), por ejemplo (1, 1)
