@@ -1,0 +1,50 @@
+# Pasos para declarar un objeto QSerialPort
+
+## Declaracion en "mainwindow.h"
+
+Declaro un puntero a QSerialPort, un ejemplo es:
+`QSerialPort *serial;`
+
+## Constructor de MainWindow
+
+* El puntero es igual a `new QSerialPort(this);`
+
+* Hago un listado de serialPort disponibles con: `QSerialPortInfo::availablePorts();` de la siguiente manera:
+
+```.cpp
+
+ui->comboBoxPort->clear();
+const auto infos = QSerialPortInfo::availablePorts();
+for (const QSerialPortInfo &info : infos) {
+    ui->comboBoxPort->addItem(info.portName());
+}
+
+```
+
+## Distintos metodos que se utilizan
+
+* Disponibilidad del serial: `serial->isOpen()`
+
+* Seteo puerto: `serial->setPortName()` y puede recibir como parametro el texto del listado: `ui->comboBoxPort->currentText()`
+
+* Caracteristicas de la comunicacion:
+
+```.cpp
+
+serial->setBaudRate(QSerialPort::Baud9600);
+serial->setDataBits(QSerialPort::Data8);
+serial->setParity(QSerialPort::NoParity);
+serial->setStopBits(QSerialPort::OneStop);
+serial->setFlowControl(QSerialPort::NoFlowControl);
+
+```
+
+* Abrir un puerto serie: `serial->open(QIODevice::ReadWrite)` y recibe el modo de comunicacion (lectura, escritura o ambos)
+
+* Desconectar o cerrar puerto: `serial->close();`
+
+* Leer datos o recibir datos: `const QByteArray data = serial->readAll();`
+
+* Escribir datos o enviarlos: `serial->write(data)` siendo data lo que hay que enviar
+
+* Para ejecutar una funcion si recibi datos: `connect(serial, &QSerialPort::readyRead, this, &MainWindow::readData);` siendo `MainWindow::readData` la funcion a ejecutar. Con `disconect` desconecto la señal
