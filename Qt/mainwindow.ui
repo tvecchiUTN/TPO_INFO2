@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>767</width>
-    <height>367</height>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Ascensor_TPO</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -421,7 +421,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>767</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
