@@ -30,12 +30,22 @@ void DriverStepper::HandlerDelPeriferico()
     {
         if (m_countTicks >= m_waitTicks)
         {
-            m_pul.SetPin();
+            if(!m_waitTicks)
+            {
+                m_pul.SetTogglePin();
+            }
+            else
+            {
+                m_pul.SetPin();
+            }
+            
             m_countTicks = 0;
-            return;
         }
-        m_pul.ClrPin();
-        m_countTicks++;
+        else
+        {
+            m_pul.ClrPin();
+            m_countTicks++;
+        }
     }
 }
 
