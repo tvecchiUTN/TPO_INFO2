@@ -81,8 +81,8 @@ MainWindow::MainWindow(QWidget *parent)
     QString estiloEncendido = "background-color: transparent; color: #00ff66; font-size: 48px;";
 
     // --- ESTADO INICIAL / REPOSO ---
-    ui->lblFlechaArriba->setStyleSheet(estiloApagado);
-    ui->lblFlechaAbajo->setStyleSheet(estiloApagado);
+    ui->lblFlechaArriba->setStyleSheet(estiloEncendido);
+    ui->lblFlechaAbajo->setStyleSheet(estiloEncendido);
 
     //texto inicial del piso actual en reposo
     ui->label_2->setText("Piso N°PB");
