@@ -2,18 +2,32 @@
 #include "ui_mainwindow.h"
 #include <QPolygonF>
 #include <QRegion>
-#include <QSerialPort>
-#include <QSerialPortInfo>
+#include <QMessageBox>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QString puertoSerial, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
 
+    setWindowTitle("Control de Ascensor - Puerto: " + puertoSerial);
 
+    m_serial = new QSerialPort(this);
+    m_serial->setPortName(puertoSerial);
+    m_serial->setBaudRate(QSerialPort::Baud9600);
+    m_serial->setDataBits(QSerialPort::Data8);
+    m_serial->setParity(QSerialPort::NoParity);
+    m_serial->setStopBits(QSerialPort::OneStop);
+    m_serial->setFlowControl(QSerialPort::NoFlowControl);
 
+    if (m_serial->open(QIODevice::ReadWrite)) {
+        qDebug() << "Puerto serie abierto correctamente:" << puertoSerial;
+    } else {
+        qDebug() << "Error al abrir" << puertoSerial << ":" << m_serial->errorString();
+        QMessageBox::warning(this, "Error de puerto serie",
+                             "No se pudo abrir " + puertoSerial + ":\n" + m_serial->errorString());
+    }
 ////////////////////////////////  BOTONERA DE MUSICA ///////////////////////
     QPolygonF trianguloDerecho;
     trianguloDerecho << QPointF(0,0)    // Punta superior (centro X, arriba Y)
@@ -81,8 +95,8 @@ MainWindow::MainWindow(QWidget *parent)
     QString estiloEncendido = "background-color: transparent; color: #00ff66; font-size: 48px;";
 
     // --- ESTADO INICIAL / REPOSO ---
-    ui->lblFlechaArriba->setStyleSheet(estiloEncendido);
-    ui->lblFlechaAbajo->setStyleSheet(estiloEncendido);
+    ui->lblFlechaArriba->setStyleSheet(estiloApagado);
+    ui->lblFlechaAbajo->setStyleSheet(estiloApagado);
 
     //texto inicial del piso actual en reposo
     ui->label_2->setText("Piso N°PB");
@@ -92,5 +106,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if (m_serial && m_serial->isOpen()) {
+        m_serial->close();
+    }
     delete ui;
 }
